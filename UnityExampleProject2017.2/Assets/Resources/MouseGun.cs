@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseGun : MonoBehaviour {
 	//references
 	public Deadman deadman;
+	public GameObject burst;
 
     // Use this for initialization
     void Start () {
@@ -38,11 +39,12 @@ public class MouseGun : MonoBehaviour {
 			//add impact to deadman
 			//Instantiate (Resources.Load("KaBoom"),Hit.transform.position,Hit.transform.rotation);
 
-			/*  add impact from mouse
+			//add smoke
 			if (Hit.rigidbody != null) {
-				Hit.collider.GetComponent<Rigidbody> ().AddForceAtPosition (Hit.point *5f, Hit.point);
+				GameObject smokeClone =Instantiate (burst, Hit.point, Quaternion.Euler(Hit.normal));
+				Destroy (smokeClone,2f);
+				//Hit.collider.GetComponent<Rigidbody> ().AddForceAtPosition (Hit.point *5f, Hit.point);
 			}
-			*/
 		}
 	}
 			
